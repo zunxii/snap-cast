@@ -2,7 +2,7 @@
 export const emojis = ["😂", "😍", "👍"];
 
 
-export const visibilities: Visibility[] = ["public", "private"];
+// export const visibilities: Visibility[] = ["public", "private"];
 
 export const ICONS = {
   record: "/assets/icons/record.svg",

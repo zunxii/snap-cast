@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {user && (
           <figure>
-            <button onClick={() => router.push(`/profile/${session?.user.id}`)}>
+            <button onClick={() => router.push(`/profile/123456`)}>
               <ImageWithFallback
                 src="/assets/images/dummy.jpg"
                 alt="User"
@@ -36,15 +36,15 @@ const Navbar = () => {
               />
             </button>
             <button
-              onClick={async () => {
-                return await authClient.signOut({
-                  fetchOptions: {
-                    onSuccess: () => {
-                      redirect("/sign-in");
-                    },
-                  },
-                });
-              }}
+              // onClick={async () => {
+              //   return await authClient.signOut({
+              //     fetchOptions: {
+              //       onSuccess: () => {
+              //         redirect("/sign-in");
+              //       },
+              //     },
+              //   });
+              // }}
               className="cursor-pointer"
             >
               <Image
