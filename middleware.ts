@@ -1,20 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "./lib/auth";
-import { headers } from "next/headers";
 
-export async function middleware(request: NextRequest) {
+const PUBLIC_PATHS = ["/sign-in", "/_next", "/favicon.ico", "/assets"];
+
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // allow public routes (sign-in, sign-up, etc.)
-  if (pathname.startsWith("/sign-in")) {
+  if (PUBLIC_PATHS.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const token = request.cookies.get("better-auth.session_token")?.value;
 
-  if (!session) {
+  if (!token) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
