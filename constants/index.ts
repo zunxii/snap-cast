@@ -1,8 +1,16 @@
 
 export const emojis = ["😂", "😍", "👍"];
+export const MAX_VIDEO_SIZE = 500 * 1024 * 1024;
+export const MAX_THUMBNAIL_SIZE = 10 * 1024 * 1024;
 
+export const filterOptions = [
+  "Most Viewed",
+  "Most Recent",
+  "Oldest First",
+  "Least Viewed",
+];
 
-// export const visibilities: Visibility[] = ["public", "private"];
+export const visibilities: Visibility[] = ["public", "private"];
 
 export const ICONS = {
   record: "/assets/icons/record.svg",
